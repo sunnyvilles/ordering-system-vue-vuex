@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CurrentOrder msg="Hello Vue in CodeSandbox!" />
+    <CurrentOrder />
   </div>
 </template>
 

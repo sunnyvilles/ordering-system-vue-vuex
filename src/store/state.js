@@ -1,6 +1,7 @@
 export default {
   contacts: [],
   clients: [],
+  sellers: [],
   currentOrder: {
     id: null,
     orderDetails: {
@@ -8,6 +9,7 @@ export default {
       client: "",
       contact: ""
     },
-    sellers: []
+    sellers: [],
+    finalize: false
   }
 };
