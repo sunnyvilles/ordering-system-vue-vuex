@@ -11,8 +11,6 @@
     remove book keeping data from sellers object
     component submit should be disabled after finalize
     more validations 
-    
-
    
     
 ### Approach:

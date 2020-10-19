@@ -30,7 +30,6 @@
     >
       Finalize
     </button>
-    <pre>{{currentOrderCopy}}</pre>
     <div v-if="currentOrder.finalize"> This order has been finalized</div>
   </div>
 
