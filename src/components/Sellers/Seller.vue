@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <div class="col-sm">
+
       <div class="form-group">
         <label for="seller">Sellers</label>
         <select class="form-control" name="seller" v-model="currentSeller.sellerId">
@@ -16,6 +17,7 @@
         <div v-show="!isSellerValid">Please choose a seller.</div>
       </div>
     </div>
+
     <div class="col-sm">
       <div class="form-group">
         <label for="percentage">Percentage</label>
@@ -32,27 +34,34 @@
         </div>
       </div>
     </div>
+
   </div>
+
 </template>
 
 <script>
 export default {
   props: { sellers: Array, seller: Object },
+
   data() {
     return {
       currentSeller: {},
     };
   },
+
   mounted() {
     this.currentSeller = this.seller; // has id, seller, percentage
   },
+
   computed: {
+
     isPercentageValid() {
       return this.currentSeller.percentage >= 0 && this.currentSeller.percentage <= 100;
     },
     isSellerValid() {
       return this.currentSeller.sellerId;
     },
+
   },
 };
 </script>

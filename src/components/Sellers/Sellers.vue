@@ -9,6 +9,7 @@
       <button type="submit" class="btn btn-primary" @click.prevent="addSeller">
         +Seller
       </button>
+
       <button
           type="submit"
           class="btn btn-primary ml-2"
@@ -20,6 +21,7 @@
     </form>
 
   </div>
+
 </template>
 
 <script>

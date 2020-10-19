@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div v-if="currentOrder.finalize"> This order has been finalized</div>
+    <div v-if="currentOrder.finalize" class="mt-5"> This order has been finalized</div>
     <div class="row">
       <div class="col-sm">
         <button
@@ -48,36 +48,45 @@ import DisplayOrder from "./DisplayOrder/DisplayOrder";
 
 export default {
   name: "CurrentOrder",
+
   data() {
     return {
       currentOrderCopy: {},
     };
   },
+
   components: {
     DisplayOrder,
     OrderDetails,
     Sellers,
   },
+
   mounted() {
     //make a copy of current order , for pre-finalize
     this.currentOrderCopy = JSON.parse(JSON.stringify(this.currentOrder));
   },
+
   computed: {
     currentOrder() {
       return this.$store.state.currentOrder;
     },
   },
+
   methods: {
+
     updateOrderDetails(data) {
       this.currentOrderCopy.orderDetails = data;
     },
+
     updateOrderSellers(data) {
       this.currentOrderCopy.sellers = data
     },
+
     onFinalizeOrder() {
       this.currentOrderCopy.finalize = true;
       this.$store.dispatch("finalizeOrder", this.currentOrderCopy);
     },
+
   },
 };
 </script>

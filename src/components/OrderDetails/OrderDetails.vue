@@ -1,6 +1,9 @@
 <template>
+
   <div class="order-details-container">
+
     <form>
+
       <div class="form-group">
         <label for="orderDate">Order Date</label>
         <input
@@ -27,6 +30,7 @@
         </select>
         <div v-show="!isClientValid">Please choose a client.</div>
       </div>
+
       <div class="form-group">
         <label for="contact">Contact</label>
         <select class="form-control" id="contact" v-model="form.contact">
@@ -41,6 +45,7 @@
         </select>
         <div v-show="!isContactValid">Please choose a contact.</div>
       </div>
+
       <button
         type="submit"
         class="btn btn-primary"
@@ -49,8 +54,11 @@
       >
         Save Order Details
       </button>
+
     </form>
+
   </div>
+
 </template>
 
 <script>
