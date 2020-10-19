@@ -6,7 +6,7 @@ export default {
   currentOrder: {
     id: null,
     orderDetails: {
-      date: "",
+      order_date: "",
       client: "",
       contact: ""
     },

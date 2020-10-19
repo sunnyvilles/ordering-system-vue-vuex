@@ -8,7 +8,7 @@
 
           <OrderDetails
             :orderDetails="currentOrder.orderDetails"
-            @submit="updateOrder($event)"
+            @submit="updateOrderDetails($event)"
           ></OrderDetails>
         </div>
       </div>
@@ -22,15 +22,21 @@
         </div>
       </div>
     </div>
-    <br />
-    <button
-      class="btn btn-success float-right"
-      @click.prevent="onFinalizeOrder"
-      :disabled="currentOrder.finalize"
-    >
-      Finalize
-    </button>
     <div v-if="currentOrder.finalize"> This order has been finalized</div>
+    <div class="row">
+      <div class="col-sm">
+        <button
+            class="btn btn-success float-right"
+            @click.prevent="onFinalizeOrder"
+            :disabled="currentOrder.finalize"
+        >
+          Finalize
+        </button>
+      </div>
+    </div>
+
+  <DisplayOrder :currentOrder="currentOrderCopy"></DisplayOrder>
+
   </div>
 
 </template>
@@ -38,6 +44,7 @@
 <script>
 import OrderDetails from "./OrderDetails/OrderDetails";
 import Sellers from "./Sellers/Sellers";
+import DisplayOrder from "./DisplayOrder/DisplayOrder";
 
 export default {
   name: "CurrentOrder",
@@ -47,6 +54,7 @@ export default {
     };
   },
   components: {
+    DisplayOrder,
     OrderDetails,
     Sellers,
   },
@@ -60,8 +68,8 @@ export default {
     },
   },
   methods: {
-    updateOrder(data) {
-      this.currentOrderCopy = {...this.currentOrderCopy,...data}
+    updateOrderDetails(data) {
+      this.currentOrderCopy.orderDetails = data;
     },
     updateOrderSellers(data) {
       this.currentOrderCopy.sellers = data
