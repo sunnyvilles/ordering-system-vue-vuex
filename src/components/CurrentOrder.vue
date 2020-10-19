@@ -8,14 +8,17 @@
 
           <OrderDetails
             :orderDetails="currentOrder.orderDetails"
-            @order-details-submit="updateOrderDetails($event)"
+            @submit="updateOrder($event)"
           ></OrderDetails>
         </div>
       </div>
       <div class="col-sm">
         <h2>Sellers</h2>
         <div class="border border-primary p-3">
-          <Sellers></Sellers>
+          <Sellers :sellers="currentOrder.sellers"
+                   @submit="updateOrderSellers($event)">
+
+          </Sellers>
         </div>
       </div>
     </div>
@@ -27,9 +30,10 @@
     >
       Finalize
     </button>
-
+    <pre>{{currentOrderCopy}}</pre>
     <div v-if="currentOrder.finalize"> This order has been finalized</div>
   </div>
+
 </template>
 
 <script>
@@ -57,11 +61,12 @@ export default {
     },
   },
   methods: {
-    updateOrderDetails(data) {
-      this.currentOrderCopy.orderDetails = data;
-      console.log(this.currentOrderCopy);
+    updateOrder(data) {
+      this.currentOrderCopy = {...this.currentOrderCopy,...data}
     },
-
+    updateOrderSellers(data) {
+      this.currentOrderCopy.sellers = data
+    },
     onFinalizeOrder() {
       this.currentOrderCopy.finalize = true;
       this.$store.dispatch("finalizeOrder", this.currentOrderCopy);

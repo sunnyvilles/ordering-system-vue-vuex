@@ -3,12 +3,12 @@
 ## Setup and run
     npm install
     npm run serve
-
+    deployed at : https://ordering-system-vuex-app.netlify.app/
 
 ### TODO:
     Items block
     API requests - mocks , post request
-    add sellers duplicate check
+    remove book keeping data from sellers object
     component submit should be disabled after finalize
     more validations 
     

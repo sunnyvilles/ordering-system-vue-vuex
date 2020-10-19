@@ -9,7 +9,9 @@ export default {
     state.sellers = sellerList;
   },
   finalizeOrder(state, currentOrder) {
-    console.log("in  mutat", currentOrder);
     state.currentOrder = currentOrder;
+  },
+  recordId(state){
+    state.recordId++;
   }
 };

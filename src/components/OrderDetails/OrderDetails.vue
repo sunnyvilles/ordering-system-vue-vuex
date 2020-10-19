@@ -47,7 +47,7 @@
         @click.prevent="onSubmit"
         :disabled="!isFormValid"
       >
-        Submit
+        Save Order Details
       </button>
     </form>
   </div>
@@ -78,7 +78,7 @@ export default {
   methods: {
     ...mapActions(["fetchClients", "fetchContactOfClient"]),
     onSubmit() {
-      this.$emit("order-details-submit", this.form);
+      this.$emit("submit", this.form);
     },
   },
   computed: {

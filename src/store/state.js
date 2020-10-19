@@ -2,6 +2,7 @@ export default {
   contacts: [],
   clients: [],
   sellers: [],
+  recordId: 0,
   currentOrder: {
     id: null,
     orderDetails: {
