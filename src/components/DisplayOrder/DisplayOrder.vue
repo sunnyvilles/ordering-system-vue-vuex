@@ -1,6 +1,6 @@
 <template>
 
-  <div class="card mt-5" v-if="currentOrder">
+  <div class="card mt-5" v-if="currentOrder && !currentOrder.finalize">
     <div class="card-header">
       Current Order Details
     </div>
