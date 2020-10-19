@@ -17,12 +17,11 @@ export default {
     const sellerList = [
       { id: 1, name: "Seller A" },
       { id: 2, name: "Seller B" },
-      { id: 1, name: "Seller C" }
+      { id: 3, name: "Seller C" }
     ];
     context.commit("fetchSellers", { sellerList });
   },
   finalizeOrder(context, currentOrder) {
-    console.log("in action");
     context.commit("finalizeOrder", currentOrder);
   }
 };

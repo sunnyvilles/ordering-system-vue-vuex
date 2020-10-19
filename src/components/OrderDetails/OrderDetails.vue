@@ -28,8 +28,8 @@
         <div v-show="!isClientValid">Please choose a client.</div>
       </div>
       <div class="form-group">
-        <label for="client">Contact</label>
-        <select class="form-control" id="client" v-model="form.contact">
+        <label for="contact">Contact</label>
+        <select class="form-control" id="contact" v-model="form.contact">
           <option></option>
           <option
             v-for="contact in getContacts"
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     ...mapActions(["fetchClients", "fetchContactOfClient"]),
-    onSubmit(data) {
+    onSubmit() {
       this.$emit("order-details-submit", this.form);
     },
   },

@@ -3,7 +3,7 @@
     <div class="col-sm">
       <div class="form-group">
         <label for="seller">Sellers</label>
-        <select class="form-control" name="seller" v-model="currentSeller">
+        <select class="form-control" name="seller" v-model="currentSeller.seller">
           <option></option>
           <option
             v-for="sellerObj in sellers"
@@ -25,20 +25,19 @@
           class="form-control"
           name="percentage"
           required
-          v-model="percentage"
+          v-model="currentSeller.percentage"
         />
         <div v-show="!isPercentageValid">
           Please choose a percentage value between 0.001 and 100.
         </div>
       </div>
     </div>
-    sellers: {{ sellers }}
   </div>
 </template>
 
 <script>
 export default {
-  props: { sellers: Object, seller: Object },
+  props: { sellers: Array, seller: Object },
   data() {
     return {
       percentage: 0,
@@ -46,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    this.currentSeller = this.seller;
+    this.currentSeller = this.seller; // has id, seller, percentage
   },
   computed: {
     isPercentageValid() {

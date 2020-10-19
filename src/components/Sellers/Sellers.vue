@@ -2,7 +2,7 @@
   <div class="sellers-container">
     <form>
       <template v-for="s in addedSellers">
-        <Seller :key="s.sid" :seller="s" :sellers="getSellers"></Seller>
+        <Seller :key="s.objId" :seller="s" :sellers="getSellers"></Seller>
       </template>
 
       <button type="submit" class="btn btn-primary" @click.prevent="addSeller">
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     addSeller() {
-      let newSeller = { id: this.sellerId, seller: null, percentage: 0 };
+      let newSeller = { objId: this.sellerId, seller: null, percentage: 5 };
       this.addedSellers.push(newSeller);
       this.sellerId = this.sellerId + 1;
     },
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     getSellers() {
-      return this.$store.getters.fetchSellers;
+      return this.$store.getters.getSellers;
     },
   },
 };
